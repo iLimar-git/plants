@@ -1,0 +1,39 @@
+{% extends 'plants/layout.html' %}
+
+{% block title %}Список растений{% endblock %}
+
+{% block content %}
+
+<div class="features">
+
+<h1>Список растений</h1>
+
+<!--{% for el in plants %}-->
+<!--    <div class="alert">-->
+<!--        <h5>{{ el.name }}</h5>-->
+<!--        <h5>{{ el.color }}</h5>-->
+<!--        <h5>{{ el.height }}</h5>-->
+<!--    </div>-->
+<!--{% endfor %}-->
+
+<ul>
+        {% for plant in plants %}
+            <li>    <span>Название: </span>{{ plant.name }} <br>
+                    <span>Цвет: </span>{{ plant.color }}<br>
+                    <span>Высота (в см):</span> {{ plant.height }}<br>
+                    <span>Доп. информация: </span>{{ plant.description }}<br>
+                    <span>Дата добавления: </span>{{ plant.date }}
+                <form action="{% url 'delete_plant' plant.pk %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger delete">Удалить</button>
+                </form>
+            </li>
+        {% endfor %}
+<!--<a href="{% url 'add_plant' %}">-->
+<!--    <button class="btn btn-info"></button>-->
+</a>
+</ul>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,25 @@
+{% extends 'plants/layout.html' %}
+{% block title %}Добавление растения{% endblock %}
+
+{% block content %}
+
+<div class="features">
+<h1>Форма для добавления</h1>
+<!--<a href="{% url 'add_plant' %}">-->
+<!--    <button class="btn btn-info"></button>-->
+<!--</a>-->
+
+<form method="post" action="{% url 'add_plant' %}">
+    {% csrf_token %}
+
+
+    <input type="text" placeholder="Название растения" class="form-control" name="name"> <br>
+    <input type="text" placeholder="Цвет растения" class="form-control" name="color"> <br>
+    <input type="number" placeholder="Высота растения (в см)" class="form-control" name="height"> <br>
+    <textarea class="form-control" placeholder="Описание растения" id="" cols="15" rows="5" name="description"></textarea>
+    <br>
+    <input type="datetime-local" placeholder="Дата добавления" class="form-control" name="date"> <br>
+    <button class="btn btn-primary" type="submit">Добавить</button>
+</form>
+</div>
+{% endblock %}
