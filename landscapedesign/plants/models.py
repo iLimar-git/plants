@@ -13,3 +13,10 @@ class Plant(models.Model):
     class Meta:
         verbose_name = 'Растение'
         verbose_name_plural = 'Растения'
+
+class Image(models.Model):
+    title = models.CharField('Название', max_length=200)
+    image = models.ImageField('Фото',upload_to='images')
+
+    def __str__(self):
+        return self.title

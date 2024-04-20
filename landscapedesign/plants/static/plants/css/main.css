@@ -1,3 +1,9 @@
+.image-item {
+    max-height: 300px;
+    max-height: 300px;
+    margin-left: 50px;
+}
+
 body {
     background: #2c2c2c;
 }
@@ -95,4 +101,13 @@ main .features {
 
 .features h1 {
     margin-bottom: 30px;
+}
+
+.image_name {
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.delete {
+    margin-top: 20px;
 }
