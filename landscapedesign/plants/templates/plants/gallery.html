@@ -1,0 +1,31 @@
+{% extends 'plants/layout.html' %}
+
+{% block title %} Галерея {% endblock %}
+
+{% block content %}
+
+<div class="features">
+        <h1>Галерея</h1>
+    {% if images %}
+        <div class="row photos ">
+            {% for image in images %}
+                <div class="image-item col-sm-6 col-md-4 col-lg-3 item ">
+                    <p class="image_name">{{ image.title }}</p>
+                    <img src="{{ image.image.url }}" class="img-fluid rounded float-right " alt="{{ image.title }}" >
+
+                    <form action="{% url 'delete_gallery' image.pk %}" method="POST">
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-danger delete">Удалить</button>
+                    </form>
+
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No images found.</p>
+    {% endif %}
+
+</div>
+
+{% endblock %}
+
